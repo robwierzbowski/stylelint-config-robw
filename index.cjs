@@ -93,9 +93,7 @@ const useNestingRules = {
 };
 
 const config = {
-  customSyntax: 'postcss',
   extends: ['stylelint-config-standard'],
-  ignoreFiles: ['dist/**'],
   plugins: [
     'stylelint-css-modules',
     'stylelint-declaration-block-no-ignored-properties',
@@ -106,7 +104,6 @@ const config = {
   reportDescriptionlessDisables: true,
   reportInvalidScopeDisables: true,
   reportNeedlessDisables: true,
-
   rules: {
     ...coreRules,
     ...cssModulesRules,
