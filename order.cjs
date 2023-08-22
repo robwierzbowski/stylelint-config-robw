@@ -408,4 +408,4 @@ const orderRules = {
   ],
 };
 
-export { orderRules };
+module.exports = orderRules;

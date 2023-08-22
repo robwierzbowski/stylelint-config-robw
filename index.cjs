@@ -1,4 +1,4 @@
-import { orderRules } from './order.mjs';
+const orderRules = require('./order.cjs');
 
 // Core rules not set in the standard config
 const coreRules = {
@@ -117,5 +117,4 @@ const config = {
   },
 };
 
-// eslint-disable-next-line import/no-default-export
-export default config;
+module.exports = config;
