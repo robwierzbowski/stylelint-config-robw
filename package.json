@@ -1,8 +1,8 @@
 {
   "name": "stylelint-config-robw",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Styelint rules for consistent, quality CSS",
-  "main": "index.js",
+  "main": "index.cjs",
   "scripts": {
     "lint": "eslint ."
   },
