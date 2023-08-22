@@ -1,10 +1,10 @@
 {
   "name": "stylelint-config-robw",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Styelint rules for consistent, quality CSS",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ."
+    "lint": "ESLINT_USE_FLAT_CONFIG=true eslint -c eslint.config.mjs ."
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,5 @@
     "stylelint-high-performance-animation": "^1.9.0",
     "stylelint-order": "^6.0.3",
     "stylelint-use-nesting": "^4.1.0"
-  },
-  "type": "module"
+  }
 }
