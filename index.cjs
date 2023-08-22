@@ -1,5 +1,13 @@
 const orderRules = require('./order.cjs');
 
+const errorMessages = {
+  notForWebDocuments: 'These rules are not meant for use in web documents',
+  noFloats:
+    'In most cases, we should use a modern layout algorithm. In cases where floats are the best choice, please disable this rule per line.',
+  nonStandardProperty:
+    'Non-standard properties should be avoided in favor of standard props. For example, use transform: scale() instead of zoom.',
+};
+
 // Core rules not set in the standard config
 const coreRules = {
   'at-rule-no-unknown': [
@@ -28,27 +36,6 @@ const coreRules = {
   'media-feature-name-value-no-unknown': true,
   'no-unknown-animations': true,
   'no-unknown-custom-properties': true,
-  'property-disallowed-list': [
-    [
-      // These rules are not meant for use in web documents
-      'direction',
-      'unicode-bidi',
-      // In most cases, we should use a modern layout algorithm. In cases where
-      // floats are the best choice, please disable this rule per line.
-      'clear',
-      'float',
-      // Non-standard properties should be avoided in favor of standard props. For
-      // example, use transform: scale() instead of zoom.
-      'max-zoom',
-      'min-zoom',
-      'user-zoom',
-      'zoom',
-    ],
-    {
-      message: property =>
-        `The \`${property}\` property is disallowed. See comments in stylelint.config.js for reasoning and alternatives.`,
-    },
-  ],
   'rule-empty-line-before': [
     'always-multi-line',
     {
@@ -88,6 +75,45 @@ const noIgnoredPropertiesRules = {
   'plugin/declaration-block-no-ignored-properties': true,
 };
 
+const noRestrictedSyntaxRules = {
+  'plugin/no-restricted-syntax': [
+    [
+      {
+        selector: "decl[prop='direction']",
+        message: errorMessages.notForWebDocuments,
+      },
+      {
+        selector: "decl[prop='unicode-bidi']",
+        message: errorMessages.notForWebDocuments,
+      },
+      {
+        selector: "decl[prop='clear']",
+        message: errorMessages.noFloats,
+      },
+      {
+        selector: "decl[prop='float']",
+        message: errorMessages.noFloats,
+      },
+      {
+        selector: "decl[prop='max-zoom']",
+        message: errorMessages.nonStandardProperty,
+      },
+      {
+        selector: "decl[prop='min-zoom']",
+        message: errorMessages.nonStandardProperty,
+      },
+      {
+        selector: "decl[prop='user-zoom']",
+        message: errorMessages.nonStandardProperty,
+      },
+      {
+        selector: "decl[prop='zoom']",
+        message: errorMessages.nonStandardProperty,
+      },
+    ],
+  ],
+};
+
 const useNestingRules = {
   'csstools/use-nesting': true,
 };
@@ -98,6 +124,7 @@ const config = {
     'stylelint-css-modules',
     'stylelint-declaration-block-no-ignored-properties',
     'stylelint-high-performance-animation',
+    'stylelint-no-restricted-syntax',
     'stylelint-order',
     'stylelint-use-nesting',
   ],
@@ -109,6 +136,7 @@ const config = {
     ...cssModulesRules,
     ...highPerformanceAnimationRules,
     ...noIgnoredPropertiesRules,
+    ...noRestrictedSyntaxRules,
     ...orderRules,
     ...useNestingRules,
   },
