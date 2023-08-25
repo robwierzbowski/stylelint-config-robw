@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-robw",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Styelint rules for consistent, quality CSS",
   "main": "index.cjs",
   "scripts": {

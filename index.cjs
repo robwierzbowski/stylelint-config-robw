@@ -1,11 +1,12 @@
 const orderRules = require('./order.cjs');
 
 const errorMessages = {
-  notForWebDocuments: 'These rules are not meant for use in web documents',
-  noFloats:
-    'In most cases, we should use a modern layout algorithm. In cases where floats are the best choice, please disable this rule per line.',
-  nonStandardProperty:
-    'Non-standard properties should be avoided in favor of standard props. For example, use transform: scale() instead of zoom.',
+  notForWebDocuments: property =>
+    `The \`${property}\` property is not meant for use in web documents`,
+  noFloats: property =>
+    `Use a modern layout algorithm instead of \`${property}\`. In cases where float layouts are the best choice, please disable this rule per line.`,
+  nonStandardProperty: property =>
+    `\`${property}\` is a non-standard property. Please replace with a standards equivalent (for example, use transform: scale() instead of zoom).`,
 };
 
 // Core rules not set in the standard config
