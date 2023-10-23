@@ -9,9 +9,9 @@ In order to accomplish this goal, the configuration enforces:
 - Consistency (e.g., rule and declaration order)
 - Modernity (e.g., modern standards like `scale` are preferred over deprecated CSS like `zoom`)
 - Efficiency (e.g., no redundant rules or declarations)
-- Performance (e.g.,prevent redraws when possible)
+- Performance (e.g., prevent redraws when possible)
 
-It prefers codebases that use native CSS features. It does not check Sass or Less, but does allow and expect a small number of useful PostCSS features that don't have widely supported native equivalents (auoprefixing, mixins, and nesting).
+It works best with codebases that use native CSS features. It does not check Sass or Less, but does allow and expect a small number of useful PostCSS features that don't have widely supported native equivalents (auoprefixing, mixins, and nesting).
 
 ## Plugins
 
@@ -22,15 +22,13 @@ This package applies rules from the following plugins:
 - [stylelint-declaration-block-no-ignored-properties](https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties)
 - [stylelint-high-performance-animation](https://github.com/kristerkari/stylelint-high-performance-animation)
 - [stylelint-no-restricted-syntax](https://github.com/niksy/stylelint-no-restricted-syntax)
-- [stylelint-order](https://github.com/hudochenkov/stylelint-order)\*
+- [stylelint-order](https://github.com/hudochenkov/stylelint-order): _CSS rules are ordered conceptually, then alphabetically within concept. See the order list [here](https://github.com/robwierzbowski/stylelint-config-robw/blob/main/order.cjs)._
 - [stylelint-use-nesting](https://github.com/csstools/stylelint-use-nesting)
-
-**\*** _CSS rules are ordered conceptually, then alphabetically within concept. See the order list [here](https://github.com/robwierzbowski/stylelint-config-robw/blob/main/order.cjs)._
 
 ## Requirements
 
 - [x] [Stylelint](https://stylelint.io/) 15+
-- [x] PostCSS [Autoprefixer](https://github.com/postcss/autoprefixer)
+- [x] [Autoprefixer](https://github.com/postcss/autoprefixer) and [postcss-nesting](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting)
 - [x] If using mixins, [postcss-mixins](https://github.com/postcss/postcss-mixins)
 - [x] A [CSS modules](https://vitejs.dev/guide/features.html#css-modules) tool
 
