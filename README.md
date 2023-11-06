@@ -9,7 +9,7 @@ In order to accomplish this goal, the configuration enforces:
 - Consistency (e.g., rule and declaration order)
 - Modernity (e.g., modern standards like `scale` are preferred over deprecated CSS like `zoom`)
 - Efficiency (e.g., no redundant rules or declarations)
-- Performance (e.g., prevent redraws when possible)
+- Performance (e.g., forbid transformations that cause layout redraws when possible)
 
 It works best with codebases that use native CSS features. It does not check Sass or Less, but does allow and expect a small number of useful PostCSS features that don't have widely supported native equivalents (auoprefixing, mixins, and nesting).
 
