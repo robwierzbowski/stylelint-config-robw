@@ -11,7 +11,7 @@ In order to accomplish this goal, the configuration enforces:
 - Efficiency (e.g., no redundant rules or declarations)
 - Performance (e.g., forbid transformations that cause layout redraws when possible)
 
-It works best with codebases that use native CSS features. It does not check Sass or Less, but does allow and expect a small number of useful PostCSS features that don't have widely supported native equivalents (auoprefixing, mixins, and nesting).
+It works best with codebases that use native CSS features. It does not check Sass or Less, but does expect some PostCSS features that don't have widely supported native equivalents (auoprefixing, mixins, and nesting).
 
 ## Plugins
 
